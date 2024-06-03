@@ -1,23 +1,23 @@
 import time
 def add(num1, num2):
     sum = num1 + num2 
-    print("The answer is :" , sum)
+    print(f"The answer of {num1}+{num2} is :" , sum)
     return sum
 def subtract(num1, num2):
     sub = num1 - num2
-    print("The answer is :" , sub)
+    print(f"The answer of {num1}-{num2} is :" , sub)
     return sub
 def multiply(num1, num2):
     multi = num1 * num2
-    print("The answer is " , multi)
+    print(f"The answer of {num1}*{num2} is " , multi)
     return multi
 def divide(num1, num2):
     div = num1 / num2
-    print("The answer is " , div)
+    print(f"The answer of {num1}/{num2} is " , div)
     return div
 def pow(num1, num2):
     pow = num1 ** num2
-    print("The answer is " , pow)
+    print(f"The answer of {num1}^{num2} is " , pow)
     return pow
 def sqrt(num1, num2):
     sqrt = num1 ** (1/num2)
@@ -27,11 +27,11 @@ def reminder(num1, num2):
     rem = num1 % num2
     print("the answer is " , rem)
     return rem
-def factorial(num1, num2):
+def factorial(num1):
     fact = 1
     for i in range(1, num1 + 1):
         fact = fact * i
-    print("the answer is " , fact)
+    print(f"the answer of {num1}! is " , fact)
     return fact
 
 """================================================================================="""
@@ -52,7 +52,7 @@ def calculate():
             num2=int(input("Enter the second number : "))
             print("now enter the operation")
             op = input("==> ")
-            print("The entered is :" + str(num1) +" " + op + " " + str(num2))
+            print("The entered is :" + str(num1) +"" + op + "" + str(num2))
             time.sleep(1)
             match op:
                 case "+":
@@ -82,23 +82,21 @@ def calculate():
                     num2 = int(input("==>"))
                     pow(num1,num2)
                 case 2 :
-                    print("Enter the number")
+                    print("Enter the first number")
                     num1 = int(input("==>"))
-                    print("Enter the power")
+                    print("Enter the second number")
                     num2 = int(input("==>"))
                     sqrt(num1,num2)
                 case 3 :
-                    print("Enter the number")
+                    print("Enter the first number")
                     num1 = int(input("==>"))
-                    print("Enter the power")
+                    print("Enter the second power")
                     num2 = int(input("==>"))
                     reminder(num1,num2)
                 case 4:
-                    print("Enter the number")
+                    print("Enter the number for factorization")
                     num1 = int(input("==>"))
-                    print("Enter the power")
-                    num2 = int(input("==>"))
-                    factorial(num1,num2)
+                    factorial(num1)
         case 3:
             print("Thank you for using our calculater.")
             time.sleep(1)
