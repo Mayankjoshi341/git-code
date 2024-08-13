@@ -42,24 +42,29 @@ def main():
 def encode():
     print("hello folkes!")
     print("enter the text ") 
-    text = str(input("==>")).split()
+    text = str(input("==>"))
     print("processing...")
     time.sleep(2)
     print("....")
-    print(text[:2])
-    print(code)
-    
-
+    textlist  = [*text]
+    print(textlist)
+    return textlist
+    if len(textlist) != 0:
+        encoding(textlist)
 
 def decode():
     print("hello folkes!")
     print("enter the text ") 
-    text = str(input("==>")).split(" ")
+    text = str(input("==>"))
     print("processing...")
     time.sleep(2)
     print("....")
-    print(text)
 
-
+def encoding(textlist):
+ for i in textlist:
+        if i in code:
+            textlist[textlist.index(i)] = code[i]
+            print(textlist)
+  
 while True:
     main()

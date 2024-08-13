@@ -1,0 +1,8 @@
+text = "mayank"
+textco = [*text]
+textin = str(input("==>"))
+textlist = [*textin]
+print(textlist)
+print(text)
+import time
+
