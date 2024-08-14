@@ -39,6 +39,10 @@ def commit():
         exit()
 
 def main():
+    """
+    The main function prompts the user to choose between encoding or decoding and then calls the
+    corresponding function based on the user's choice.
+    """
     print('enter "encode" or "decode"')
     op = input("==>")
     match op:
