@@ -26,12 +26,3 @@ code = {
     'y': '_',
     'z': '~'
 }
-msg = ['m', 'a', 'y', 'a', 'n', 'k']
-
-length = len(msg) - 1
-while length != 0:
-    s = code[msg[length]]
-    print(s, end = "")
-    if length == 0:
-        break
-    length= length - 1

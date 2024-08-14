@@ -30,6 +30,13 @@ code = {
     'z': '~'
 }
 
+def commit():
+    continuee = str(input())
+    if continuee.lower() == 'y':
+        main()
+    else:
+        print("goodbye folkes!")
+        exit()
 
 def main():
     print('enter "encode" or "decode"')
@@ -46,11 +53,14 @@ def encode():
     print("processing...")
     time.sleep(2)
     print("....")
-    textlist  = [*text]
-    print(textlist)
-    return textlist
-    if len(textlist) != 0:
-        encoding(textlist)
+    msg = [*text]
+    length = len(msg) - 1
+    while length != 0:
+      s = code[msg[length]]
+      print(s, end = "")
+      if length == 0:
+          break
+      length= length - 1
 
 def decode():
     print("hello folkes!")
@@ -60,11 +70,5 @@ def decode():
     time.sleep(2)
     print("....")
 
-def encoding(textlist):
- for i in textlist:
-        if i in code:
-            textlist[textlist.index(i)] = code[i]
-            print(textlist)
-  
 while True:
-    main()
+       commit()
