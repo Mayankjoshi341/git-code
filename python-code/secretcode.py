@@ -51,9 +51,8 @@ def decode():
     time.sleep(2)
     print("....")
     value_to_find = [*text]
-    print(value_to_find)
-    keys = [key for key , value in code.items() if value in value_to_find]
-    msg = ''.join(keys)
+    key = [key for key , value in code.items() if value in value_to_find]
+    msg = ''.join(key)
     print(msg)
 
 while True:
