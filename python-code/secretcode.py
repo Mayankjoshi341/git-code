@@ -1,11 +1,19 @@
 import time
 import numpy as np 
 import string
+import mysql.connector as connector
+
 code = {
     'a': '!','b': '@','c': '#','d': '$','e': '%','f': '^','g': '&','h': '*','i': '(','j': ')',
     'k': '{','l': '}','m': '^','n': '"','o': ';','p': '<','q': '>','r': ',','s': '.','t': '?',
     'u': "'",'v': ':','w': '+','x': '-','y': '_','z': '~',' ': '/','.': "`"
     }
+recode = {
+    '!': 'a', '@': 'b', '#': 'c', '$': 'd', '%': 'e', '^': 'f', '&': 'g', 
+    '*': 'h', '(': 'i', ')': 'j', '{': 'k', '}': 'l', '^': 'm', '"': 'n', 
+    ';': 'o', '<': 'p', '>': 'q', ',': 'r', '.': 's', '?': 't', "'": 'u', 
+    ':': 'v', '+': 'w', '-': 'x', '_': 'y', '~': 'z', '/': ' ', '`': '.'
+}
 
 def commit():
     continuee = str(input())
@@ -32,12 +40,11 @@ def encode():
     print("enter the text ") 
     text = str(input("==>"))
     print("processing...")
-    time.sleep(2)
+    time.sleep(1)
     print("....")
     msg = [*text]
     i = 0
     while i < len(msg):
-        time.sleep(0.5)
         s= code[msg[i]]
         print(s, end = "")
         i += 1
@@ -48,18 +55,16 @@ def decode():
     print("enter the text ") 
     text = str(input("==>"))
     print("processing...")
-    time.sleep(2)
+    time.sleep(1)
     print("....")
     value_to_find = [*text]
-    div = len(value_to_find)//2
-    if div >1:
-        l1 = value_to_find[div:]
-        l2 = value_to_find[:div]
-        
-
-    key = [key for key , value in code.items() if value in value_to_find]
-    msg = ''.join(key)
-    print(msg)
+    i = 0 
+    while i < len(value_to_find):
+        s= recode[value_to_find[i]]
+        print(s, end = "")
+        i += 1
+        time.sleep(0.5)
+    print("\n")
 
 while True:
        main()
