@@ -51,6 +51,12 @@ def decode():
     time.sleep(2)
     print("....")
     value_to_find = [*text]
+    div = len(value_to_find)//2
+    if div >1:
+        l1 = value_to_find[div:]
+        l2 = value_to_find[:div]
+        
+
     key = [key for key , value in code.items() if value in value_to_find]
     msg = ''.join(key)
     print(msg)
