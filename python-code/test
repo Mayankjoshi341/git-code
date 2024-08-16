@@ -1,2 +1,4 @@
-import mysql.connector as connector
-use 
+s = "i am mayank "
+y = [*s]
+h = [*y]
+print(y)

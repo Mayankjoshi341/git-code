@@ -4,12 +4,12 @@ import string
 
 
 code = {
-    'a': '!','b': '@','c': '#','d': '$','e': '%','f': '^','g': '&','h': '*','i': '(','j': ')',
+    'a': '!','b': '@','c': '#','d': '$','e': '%','f': 'ṇ','g': '&','h': '*','i': '(','j': ')',
     'k': '{','l': '}','m': '^','n': '"','o': ';','p': '<','q': '>','r': ',','s': '.','t': '?',
     'u': "'",'v': ':','w': '+','x': '-','y': '_','z': '~',' ': '/','.': "`"
     }
 recode = {
-    '!': 'a', '@': 'b', '#': 'c', '$': 'd', '%': 'e', '^': 'f', '&': 'g', 
+    '!': 'a', '@': 'b', '#': 'c', '$': 'd', '%': 'e', 'ṇ': 'f', '&': 'g', 
     '*': 'h', '(': 'i', ')': 'j', '{': 'k', '}': 'l', '^': 'm', '"': 'n', 
     ';': 'o', '<': 'p', '>': 'q', ',': 'r', '.': 's', '?': 't', "'": 'u', 
     ':': 'v', '+': 'w', '-': 'x', '_': 'y', '~': 'z', '/': ' ', '`': '.'
@@ -28,12 +28,14 @@ def main():
     The main function prompts the user to choose between encoding or decoding and then calls the
     corresponding function based on the user's choice.
     """
-    print('enter "encode" or "decode"')
+  
+    print("enter 1 for encode and 2 for decode"
+         )
     op = input("==>")
     match op:
-        case 'encode':
+        case "1":
             encode()
-        case 'decode':
+        case '2':
             decode()
 def encode():
     print("hello folkes!")
@@ -60,10 +62,11 @@ def decode():
     value_to_find = [*text]
     i = 0 
     while i < len(value_to_find):
+        time.sleep(0.5)
         s= recode[value_to_find[i]]
         print(s, end = "")
         i += 1
-        time.sleep(0.5)
+        
     print("\n")
 
 while True:
