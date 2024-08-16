@@ -1,7 +1,7 @@
 import time
 import numpy as np 
 import string
-import mysql.connector as connector
+
 
 code = {
     'a': '!','b': '@','c': '#','d': '$','e': '%','f': '^','g': '&','h': '*','i': '(','j': ')',
