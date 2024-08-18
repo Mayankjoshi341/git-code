@@ -74,23 +74,49 @@ def encode():
         s= code[msg[i]]
         print(s, end = "")
         i += 1
-    print(typ.get(1))
+    if code["a"] == 'Ꝉ':
+        print(typ.get("code_1"))
+    elif code["a"] == 'Ꝿ':
+        print(typ.get("code_2"))
+    elif code["a"] == 'Ꝣ':
+        print(typ.get("code_3"))
+    elif code["a"] == 'Ꞙ':
+        print(typ.get("code_4"))
+    elif code["a"] == 'Ʝ':
+        print(typ.get("code_5"))
+    else:
+        commit()    
     print("\n")
 
-def decode():
+def decode(typ):
     print("hello folkes!")
     print("enter the text ") 
     text = str(input("==>"))
     print("processing...")
     time.sleep(1)
     print("....")
+    
     value_to_find = [*text]
-    i = 0 
+    typ_code = value_to_find[-2:]
+    print(typ_code)
+    if code["a"] == 'Ꝉ':
+        print(typ.get("code_1"))
+    elif code["a"] == 'Ꝿ':
+        print(typ.get("code_2"))
+    elif code["a"] == 'Ꝣ':
+        print(typ.get("code_3"))
+    elif code["a"] == 'Ꞙ':
+        print(typ.get("code_4"))
+    elif code["a"] == 'Ʝ':
+        print(typ.get("code_5"))
+    else:
+        commit() 
+    """i = 0 
     while i < len(value_to_find):
         time.sleep(0.5)
         s= recode[value_to_find[i]]
         print(s, end = "")
-        i += 1
+        i += 1"""
         
     print("\n")
 
