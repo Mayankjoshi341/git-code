@@ -24,7 +24,6 @@ code_5 = {'a': 'Ʝ', 'b': 'Ꭓ', 'c': 'Ꞵ', 'd': 'ꞵ', 'e': 'Ꞷ', 'f': 'ꞷ'
  's': 'Ꞔ', 't': 'Ʂ', 'u': 'Ᶎ', 'v': 'Ꟈ', 'w': 'ꟈ', 'x': 'Ꟊ', 'y': 'ꟊ', 'z' : 'ā', ' ' : '^' , '.' :'~' ,
    "'" : "*" , '!':'#'} 
 
-typ = {"code_1" : "!*", "code_2" : "@&", "code_3" : "#^", "code_4" : "$%", "code_5" :"+-"}
 
 code_select = (code_1 , code_2, code_3 , code_4 , code_5)
 
@@ -60,6 +59,8 @@ def main():
             encode()
         case '2':
             decode()
+
+typ = {"code_1" : "!*", "code_2" : "@&", "code_3" : "#^", "code_4" : "$%", "code_5" :"+-"}
 def encode():
     print("hello folkes!")
     print("enter the text ") 
@@ -73,7 +74,7 @@ def encode():
         s= code[msg[i]]
         print(s, end = "")
         i += 1
-    print(typ[code])
+    print(typ.get(1))
     print("\n")
 
 def decode():

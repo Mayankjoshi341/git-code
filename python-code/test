@@ -1,5 +1,10 @@
-code_1 = {"a":"b","c":" "}
-typ = {"code_1" : "!*", "code_2" : "@&", "code_3" : "#^", "code_4" : "$%", "code_5" :"+-"}
+
+
+"""code_1 = {"a":"b","c":" "}
+
 code = code_1
 if code == "code_1":
-    print(typ.get("code_1"))
+    print(typ.get("code_1"))"""
+
+typ = {"code_1" : "!*", "code_2" : "@&", "code_3" : "#^", "code_4" : "$%", "code_5" :"+-"}
+print(typ.get("code_1"))
