@@ -23,21 +23,8 @@ def encode():
     for x in range(len(msg)):
         print(random.choice(code), end = "")
     print("\n")
-
-
-def create_dis(code, msg):
-    encoding_dis = {}
-    decoding_dis = {}
-    for chr in msg:
-        random_symbol = random.choice(code)
-        encoding_dis[chr] = random_symbol
-        decoding_dis[random_symbol] = chr
-        code.remove(random_symbol)
-    return encoding_dis, decoding_dis
-character = "abcdefghijklmnopqrstuvwxyzABCDEFGQRSTUVWXYZ0123456789 .,'"
-def encode(encoding_dis,msg):
-    return ''.join(encoding_dis[char] for char in msg)
-
+    codedis = {"a" : ""}
+    
 
 while True:
     encode()    
