@@ -88,7 +88,7 @@ def encode():
         commit()    
     print("\n")
 
-def decode(typ):
+def decode():
     print("hello folkes!")
     print("enter the text ") 
     text = str(input("==>"))
@@ -99,25 +99,26 @@ def decode(typ):
     value_to_find = [*text]
     typ_code = value_to_find[-2:]
     print(typ_code)
-    if code["a"] == 'Ꝉ':
+    first_code = value_to_find[:1]
+    print(first_code)
+    if first_code in code_1:
         print(typ.get("code_1"))
-    elif code["a"] == 'Ꝿ':
+    elif first_code in code_2:
         print(typ.get("code_2"))
-    elif code["a"] == 'Ꝣ':
+    elif first_code in code_3:
         print(typ.get("code_3"))
-    elif code["a"] == 'Ꞙ':
+    elif first_code in code_4:
         print(typ.get("code_4"))
-    elif code["a"] == 'Ʝ':
+    elif first_code in code_5:
         print(typ.get("code_5"))
     else:
-        commit() 
-    """i = 0 
+        commit()
+    i = 0 
     while i < len(value_to_find):
         time.sleep(0.5)
         s= recode[value_to_find[i]]
         print(s, end = "")
-        i += 1"""
-        
+        i += 1
     print("\n")
 
 while True:
