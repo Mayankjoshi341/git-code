@@ -50,40 +50,43 @@ recode_5 = {'Ʝ': 'a', 'Ꭓ': 'b', 'Ꞵ': 'c', 'ꞵ': 'd', 'Ꞷ': 'e', 'ꞷ': '
 
 code_select = (code_1 , code_2, code_3 , code_4 , code_5)
 code = random.choice(code_select)
-def commit():
-    continuee = str(input())
-    if continuee.lower() == 'y':
-        main()
-    else:
-        print("goodbye folkes!")
-        exit()
 
 def main():
     """
     The main function prompts the user to choose between encoding or decoding and then calls the
     corresponding function based on the user's choice.
     """
-  
-    print("enter 1 for encode and 2 for decode"
-         )
+    print("\n")
+    print("___________||ENTER THE FUNCTION FROM BELOW||_____________")
+    print("|1 For Encode||2 For Decode||3 For Continue||4 For Exit|")
     op = input("==>")
     match op:
         case "1":
             encode()
         case '2':
             decode()
+        case '3':
+            print("back to main menu")
+            main()
+        case '4':
+            print("goodbye!")
+            exit()
+
 
 typ = {"code_1" : "!*", "code_2" : "@&", "code_3" : "#^", "code_4" : "$%", "code_5" :"+-"}
 def encode():
-    print("hello folkes!")
-    print("enter the text ") 
+    print("HELLO, WELLCOME TO THE ENCODER!")
+    print("Please enter your secret massage") 
     text = str(input("==>"))
     print("processing...")
     time.sleep(1)
     print("....")
     msg = [*text]
     i = 0
+    print("Message converted successfully")
+    print("Encoded message is :")
     while i < len(msg):
+        time.sleep(0.3)
         s= code[msg[i]]
         print(s, end = "")
         i += 1
@@ -98,40 +101,44 @@ def encode():
     elif code["a"] == 'Ʝ':
         print(typ.get("code_5"))
     else:
-        commit()    
+        exit()    
     print("\n")
 
 def decode():
-    print("hello folkes!")
-    print("enter the text ") 
+    print("HELLO, WELLCOME TO THE DECODER!")
+    print("Please enter your secret code") 
     text = str(input("==>"))
     print("processing...")
     time.sleep(1)
     print("....")
     
     value_to_find = [*text]
-    typ_code = value_to_find[-2:]
-    print(typ_code)
+    for_recode = value_to_find[:-2]
     first_code = value_to_find[:1]
-    print(first_code)
-    if first_code in recode_1:
-        print(1)
-    elif first_code in recode_2:
-        print(2)
-    elif first_code in recode_3:
-        print(3)
-    elif first_code in recode_4:
-        print(4)
+    if first_code[0] in recode_1:
+        final_dic = recode_1
+    elif first_code[0] in recode_2:
+        final_dic = recode_2
+    elif first_code[0] in recode_3:
+        final_dic = recode_3
+    elif first_code[0] in recode_4:
+        final_dic=recode_4  
     elif first_code in recode_5:
-        print(5)
+        final_dic = recode_5
     else:
-        commit()
+        exit()
+    print("Message converted successfully")
+    print("Decoded message is :")
     i = 0 
     while i < len(value_to_find):
-        time.sleep(0.5)
-        s= recode_1[value_to_find[i]]
+        time.sleep(0.3)
+        s= final_dic[for_recode[i]]
         print(s, end = "")
         i += 1
+        try:
+           s= final_dic[for_recode[i]]
+        except(IndexError):
+            main()
     print("\n")
 
 while True:
