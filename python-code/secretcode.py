@@ -23,20 +23,33 @@ code_5 = {'a': 'Ʝ', 'b': 'Ꭓ', 'c': 'Ꞵ', 'd': 'ꞵ', 'e': 'Ꞷ', 'f': 'ꞷ'
  'j': 'ꞻ', 'k': 'Ꞽ', 'l': 'ꞽ', 'm': 'Ꞿ', 'n': 'ꞿ', 'o': 'Ꟁ', 'p': 'ꟁ', 'q': 'Ꟃ', 'r': 'ꟃ',
  's': 'Ꞔ', 't': 'Ʂ', 'u': 'Ᶎ', 'v': 'Ꟈ', 'w': 'ꟈ', 'x': 'Ꟊ', 'y': 'ꟊ', 'z' : 'ā', ' ' : '^' , '.' :'~' ,
    "'" : "*" , '!':'#'} 
-
-
-code_select = (code_1 , code_2, code_3 , code_4 , code_5)
-
-code = random.choice(code_select)
-
-
-recode = {
-    '!': 'a', '@': 'b', '#': 'c', '$': 'd', '%': 'e', 'ṇ': 'f', '&': 'g', 
-    '*': 'h', '(': 'i', ')': 'j', '{': 'k', '}': 'l', '^': 'm', '"': 'n', 
-    ';': 'o', '<': 'p', '>': 'q', ',': 'r', '.': 's', '?': 't', "'": 'u', 
-    ':': 'v', '+': 'w', '-': 'x', '_': 'y', '~': 'z', '/': ' ', '`': '.'
+recode_1 = {'Ꝉ': 'a', 'ꝉ': 'b', 'Ꝋ': 'c', 'ꝋ': 'd', 'Ꝍ': 'e', 'ꝍ': 'f', 'Ꝏ': 'g', 'ꝏ': 'h', 'Ꝑ': 'i',
+    'ꝑ': 'j', 'Ꝓ': 'k', 'ꝓ': 'l', 'Ꝕ': 'm', 'ꝕ': 'n', 'Ꝗ': 'o', 'ꝗ': 'p', 'Ꝙ': 'q', 'ꝙ': 'r',
+    'Ꝛ': 's', 'ꝛ': 't', 'Ꝝ': 'u', 'ꝝ': 'v', 'Ꝟ': 'w', 'ꝟ': 'x', 'Ꝡ': 'y', 'ꝡ': 'z', '^': ' ',
+    '~': '.', '*': "'", '#': '!'}
+recode_2 = {'Ꝿ': 'a', 'ꝿ': 'b', 'Ꞁ': 'c', 'ꞁ': 'd', 'Ꞃ': 'e', 'ꞃ': 'f', 'Ꞅ': 'g', 'ꞅ': 'h', 'Ꞇ': 'i',
+    'ꞇ': 'j', 'ꞈ': 'k', '꞉': 'l', '꞊': 'm', 'Ꞌ': 'n', 'ꞌ': 'o', 'Ɥ': 'p', 'ꞎ': 'q', 'ꞏ': 'r',
+    'Ꞑ': 's', 'ꞑ': 't', 'Ꞓ': 'u', 'ꞓ': 'v', 'ꞔ': 'w', 'ꞕ': 'x', 'Ꞗ': 'y', 'ꞗ': 'z', '^': ' ',
+    '~': '.', '*': "'", '#': '!'
+}
+recode_3 = {'Ꝣ': 'a', 'ꝣ': 'b', 'Ꝥ': 'c', 'ꝥ': 'd', 'Ꝧ': 'e', 'ꝧ': 'f', 'Ꝩ': 'g', 'ꝩ': 'h', 'Ꝫ': 'i',
+    'ꝫ': 'j', 'Ꝭ': 'k', 'ꝭ': 'l', 'Ꝯ': 'm', 'ꝯ': 'n', 'ꝰ': 'o', 'ꝱ': 'p', 'ꝲ': 'q', 'ꝴ': 'r',
+    'ꝵ': 's', 'ꝷ': 't', 'ꝸ': 'u', 'ꝺ': 'v', 'Ꝼ': 'w', 'Ꝼ': 'x', 'ꝼ': 'y', 'Ᵹ': 'z', '^': ' ',
+    '~': '.', '*': "'", '#': '!'
+}
+recode_4 = {'Ꞙ': 'a', 'ꞙ': 'b', 'Ꞛ': 'c', 'ꞛ': 'd', 'Ꞝ': 'e', 'ꞝ': 'f', 'Ꞟ': 'g', 'ꞟ': 'h', 'Ꞡ': 'i',
+    'ꞡ': 'j', 'Ꞣ': 'k', 'ꞣ': 'l', 'Ꞥ': 'm', 'ꞥ': 'n', 'Ꞧ': 'o', 'ꞧ': 'p', 'Ꞩ': 'q', 'ꞩ': 'r',
+    'Ɦ': 's', 'Ɜ': 't', 'Ɡ': 'u', 'Ɬ': 'v', 'Ɪ': 'w', 'ꞯ': 'x', 'Ʞ': 'y', 'Ʇ': 'z', '^': ' ',
+    '~': '.', '*': "'", '#': '!'
+}
+recode_5 = {'Ʝ': 'a', 'Ꭓ': 'b', 'Ꞵ': 'c', 'ꞵ': 'd', 'Ꞷ': 'e', 'ꞷ': 'f', 'Ꞹ': 'g', 'ꞹ': 'h', 'Ꞻ': 'i',
+    'ꞻ': 'j', 'Ꞽ': 'k', 'ꞽ': 'l', 'Ꞿ': 'm', 'ꞿ': 'n', 'Ꟁ': 'o', 'ꟁ': 'p', 'Ꟃ': 'q', 'ꟃ': 'r',
+    'Ꞔ': 's', 'Ʂ': 't', 'Ᶎ': 'u', 'Ꟈ': 'v', 'ꟈ': 'w', 'Ꟊ': 'x', 'ꟊ': 'y', 'ā': 'z', '^': ' ',
+    '~': '.', '*': "'", '#': '!'
 }
 
+code_select = (code_1 , code_2, code_3 , code_4 , code_5)
+code = random.choice(code_select)
 def commit():
     continuee = str(input())
     if continuee.lower() == 'y':
@@ -101,22 +114,22 @@ def decode():
     print(typ_code)
     first_code = value_to_find[:1]
     print(first_code)
-    if first_code in code_1:
-        print(typ.get("code_1"))
-    elif first_code in code_2:
-        print(typ.get("code_2"))
-    elif first_code in code_3:
-        print(typ.get("code_3"))
-    elif first_code in code_4:
-        print(typ.get("code_4"))
-    elif first_code in code_5:
-        print(typ.get("code_5"))
+    if first_code in recode_1:
+        print(1)
+    elif first_code in recode_2:
+        print(2)
+    elif first_code in recode_3:
+        print(3)
+    elif first_code in recode_4:
+        print(4)
+    elif first_code in recode_5:
+        print(5)
     else:
         commit()
     i = 0 
     while i < len(value_to_find):
         time.sleep(0.5)
-        s= recode[value_to_find[i]]
+        s= recode_1[value_to_find[i]]
         print(s, end = "")
         i += 1
     print("\n")
