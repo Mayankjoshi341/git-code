@@ -50,15 +50,10 @@ recode_5 = {'Ʝ': 'a', 'Ꭓ': 'b', 'Ꞵ': 'c', 'ꞵ': 'd', 'Ꞷ': 'e', 'ꞷ': '
 
 code_select = (code_1 , code_2, code_3 , code_4 , code_5)
 code = random.choice(code_select)
-
-def main():
-    """
-    The main function prompts the user to choose between encoding or decoding and then calls the
-    corresponding function based on the user's choice.
-    """
+def msg():
     print("\n")
     print("___________||ENTER THE FUNCTION FROM BELOW||_____________")
-    print("|1 For Encode||2 For Decode||3 For Continue||4 For Exit|")
+    print("|1 For Encode||2 For Decode||4 For Exit|")
     op = input("==>")
     match op:
         case "1":
@@ -66,11 +61,18 @@ def main():
         case '2':
             decode()
         case '3':
-            print("back to main menu")
-            main()
-        case '4':
             print("goodbye!")
             exit()
+
+def main():
+    msg()
+    print("Enter yes to continue...")
+    con = input("==>")
+    match con:
+        case "yes":
+            decode()
+        case 'no':
+            encode()
 
 
 typ = {"code_1" : "!*", "code_2" : "@&", "code_3" : "#^", "code_4" : "$%", "code_5" :"+-"}
@@ -90,6 +92,8 @@ def encode():
         s= code[msg[i]]
         print(s, end = "")
         i += 1
+
+
     if code["a"] == 'Ꝉ':
         print(typ.get("code_1"))
     elif code["a"] == 'Ꝿ':
@@ -102,8 +106,6 @@ def encode():
         print(typ.get("code_5"))
     else:
         exit()    
-    print("\n")
-
 def decode():
     print("HELLO, WELLCOME TO THE DECODER!")
     print("Please enter your secret code") 
@@ -143,3 +145,14 @@ def decode():
 
 while True:
        main()
+else:
+    print(0)
+
+match op:
+        case "1":
+            print("write 1 to decode ")
+            int()
+        case '2':
+             print("write 1 to decode ")
+             int()
+  
