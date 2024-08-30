@@ -66,11 +66,12 @@ def msg():
 
 def main():
     msg()
-    print("Enter yes to continue...")
+    print("Enter yes to decode this msg...")
     con = input("==>")
     match con:
         case "yes":
-            decode()
+            encoded = encode()
+            print(f"This is your encoded message {encoded}")
         case 'no':
             encode()
 
