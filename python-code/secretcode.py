@@ -64,16 +64,32 @@ def msg():
             print("goodbye!")
             exit()
 
+<<<<<<< Tabnine <<<<<<<
 def main():
+    """#+
+    This function serves as the main entry point for the program. It calls other functions#+
+    to handle user input, encode and decode messages, and display the results.#+
+#+
+    Parameters:#+
+    None#+
+#+
+    Returns:#+
+    None#+
+    """#+
     msg()
     print("Enter yes to decode this msg...")
     con = input("==>")
     match con:
         case "yes":
             encoded = encode()
+            # The line `print(f"This is your encoded message {encoded}")` is displaying the encoded
+            # message to the user. It uses an f-string to format the output by inserting the value of
+            # the `encoded` variable into the string. This way, the user can see the result of the
+            # encoding process in a user-friendly manner.
             print(f"This is your encoded message {encoded}")
         case 'no':
             encode()
+>>>>>>> Tabnine >>>>>>>
 
 
 typ = {"code_1" : "!*", "code_2" : "@&", "code_3" : "#^", "code_4" : "$%", "code_5" :"+-"}
