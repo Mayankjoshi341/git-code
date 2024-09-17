@@ -52,48 +52,17 @@ code_select = (code_1 , code_2, code_3 , code_4 , code_5)
 code = random.choice(code_select)
 def msg():
     print("\n")
-    print("___________||ENTER THE FUNCTION FROM BELOW||_____________")
-    print("|1 For Encode||2 For Decode||4 For Exit|")
+    print("______||ENTER THE FUNCTION FROM BELOW||______")
+    print("______|1 For Encode||2 For Decode|____________")
     op = input("==>")
     match op:
         case "1":
             encode()
         case '2':
             decode()
-        case '3':
-            print("goodbye!")
-            exit()
 
-<<<<<<< Tabnine <<<<<<<
-def main():
-    """#+
-    This function serves as the main entry point for the program. It calls other functions#+
-    to handle user input, encode and decode messages, and display the results.#+
-#+
-    Parameters:#+
-    None#+
-#+
-    Returns:#+
-    None#+
-    """#+
-    msg()
-    print("Enter yes to decode this msg...")
-    con = input("==>")
-    match con:
-        case "yes":
-            encoded = encode()
-            # The line `print(f"This is your encoded message {encoded}")` is displaying the encoded
-            # message to the user. It uses an f-string to format the output by inserting the value of
-            # the `encoded` variable into the string. This way, the user can see the result of the
-            # encoding process in a user-friendly manner.
-            print(f"This is your encoded message {encoded}")
-        case 'no':
-            encode()
->>>>>>> Tabnine >>>>>>>
-
-
-typ = {"code_1" : "!*", "code_2" : "@&", "code_3" : "#^", "code_4" : "$%", "code_5" :"+-"}
 def encode():
+    typ = {"code_1" : "!*", "code_2" : "@&", "code_3" : "#^", "code_4" : "$%", "code_5" :"+-"}
     print("HELLO, WELLCOME TO THE ENCODER!")
     print("Please enter your secret massage") 
     text = str(input("==>"))
@@ -157,11 +126,11 @@ def decode():
         try:
            s= final_dic[for_recode[i]]
         except(IndexError):
-            main()
+            msg()
     print("\n")
 
 while True:
-       main()
+       msg()
 else:
     print(0)
 
