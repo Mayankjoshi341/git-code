@@ -10,7 +10,7 @@ def fit_scaler(df):
 
     return scaler, x_scaled_df
 
-def transform_scaler(scaler, df):
+def transform_with_scaler(df, scaler):
     x_scaled = scaler.transform(df)
     x_scaled_df = pd.DataFrame(x_scaled, columns=df.columns , index=df.index)
     return x_scaled_df

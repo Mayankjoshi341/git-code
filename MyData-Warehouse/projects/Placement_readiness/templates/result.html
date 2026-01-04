@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Generated</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: #27ae60;
+            color: white;
+            font-weight: bold;
+        }
+        ul {
+            margin-top: 10px;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>✅ Report Generated Successfully</h1>
+
+    <p class="center">
+        Hi <b>{{ name }}</b>, your placement readiness report has been sent to your email.
+    </p>
+
+    <div class="center">
+        <span class="badge">{{ recommendation.readiness_level }}</span>
+    </div>
+
+    <h3>🎯 Key Focus Areas</h3>
+    <ul>
+        {% for key in recommendation.focus_areas.keys() %}
+            <li>{{ key.replace("_", " ").title() }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>💰 Expected Salary Range</h3>
+    <p>₹ {{ recommendation.expected_salary_lpa }} LPA</p>
+
+    <h3>📈 Career Growth</h3>
+    <ul>
+        {% for step in recommendation.growth_trajectory %}
+            <li>{{ step }}</li>
+        {% endfor %}
+    </ul>
+
+    <p class="center">
+        📩 Please check your inbox (and spam folder).
+    </p>
+</div>
+
+</body>
+</html>

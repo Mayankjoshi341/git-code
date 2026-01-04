@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Placement Readiness Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Simple styling -->
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        label {
+            font-weight: 600;
+            margin-top: 15px;
+            display: block;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .note {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎓 Placement Readiness Check</h1>
+
+    <form method="POST" action="/generate-report">
+
+        <label>Full Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email Address</label>
+        <input type="email" name="email" required>
+
+        <label>CGPA</label>
+        <input type="number" name="cgpa" step="0.1" min="5" max="10" required>
+
+        <label>Aptitude Level (1–5)</label>
+        <select name="aptitude" required>
+            <option value="">Select</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+        </select>
+
+        <label>Domain Skill Level (1–5)</label>
+        <select name="domain_skill" required>
+            <option value="">Select</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+        </select>
+
+        <label>English / Communication Level (1–5)</label>
+        <select name="english" required>
+            <option value="">Select</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+        </select>
+
+        <label>Applied Work Count (Projects / Cases / Field Work)</label>
+        <input type="number" name="applied_work" min="0" max="10" required>
+
+        <label>Internship Count</label>
+        <input type="number" name="internships" min="0" max="5" required>
+
+        <button type="submit">Generate My Report 📊</button>
+    </form>
+
+    <div class="note">
+        You’ll receive a detailed report on your email after submission.
+    </div>
+</div>
+
+</body>
+</html>
