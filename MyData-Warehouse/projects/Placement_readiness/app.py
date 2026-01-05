@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import pandas as pd
 from joblib import load
+import os
 
 # Import your modules
 from src.preprocessing import transform_with_scaler
@@ -82,4 +83,6 @@ def generate_report():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
+
