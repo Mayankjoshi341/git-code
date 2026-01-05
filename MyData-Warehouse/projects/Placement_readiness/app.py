@@ -12,7 +12,7 @@ app = Flask(__name__ ,  template_folder="templates")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-scaler = load(os.path.join(BASE_DIR, "models", "scaler.pkl"))
+scaler = load(os.path.join(BASE_DIR, "models", "kmeans_scaler.pkl"))
 kmeans = load(os.path.join(BASE_DIR, "models", "kmeans_model.pkl"))
 
 FEATURE_COLS = [
