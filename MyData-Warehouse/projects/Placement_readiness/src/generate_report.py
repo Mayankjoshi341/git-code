@@ -125,7 +125,7 @@ def generate_html_report(student_name, recommendation):
 
     return html
 
-def pdf_convert(html_content):
+#def pdf_convert(html_content):
     options = {
         'page-size': 'A4',
         'encoding': 'UTF-8',
@@ -152,16 +152,16 @@ def mail_generate(receiver_gmail, student_name, recommendation):
     body = generate_html_report(student_name, recommendation)
     msg.attach(MIMEText(body, "html"))
     
-    pdf_report = pdf_convert(body)
+    #pdf_report = pdf_convert(body)
 
-    if pdf_report is not None:
-        attachment = MIMEApplication(pdf_report, _subtype="pdf")
-        attachment.add_header(
-            "Content-Disposition",
-            "attachment",
-            filename="Placement_Readiness_Report.pdf"
-        )
-        msg.attach(attachment)
+    #if pdf_report is not None:
+    #   attachment = MIMEApplication(pdf_report, _subtype="pdf")
+    #   attachment.add_header(
+    #        "Content-Disposition",
+    #       "attachment",
+    #       filename="Placement_Readiness_Report.pdf"
+    #   )
+    #   msg.attach(attachment)
     server = None
     try:
         server = smtplib.SMTP("smtp.gmail.com", 587)

@@ -58,10 +58,30 @@
             <li>{{ key.replace("_", " ").title() }}</li>
         {% endfor %}
     </ul>
-
+    <div class="box">
+        <h3>💪 Your Strengths</h3>
+    
+        {% if recommendation.strengths %}
+            <ul>
+                {% for k in recommendation.strengths.keys() %}
+                    <li>✅ {{ k.replace("_", " ").title() }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No strong areas identified yet.</p>
+        {% endif %}
+    </div>
     <h3>💰 Expected Salary Range</h3>
     <p>₹ {{ recommendation.expected_salary_lpa }} LPA</p>
 
+    <div class="box">
+        <h3>🚀 Estimated Impact</h3>
+        <ul>
+            {% for key, value in recommendation.estimated_impact.items() %}
+                <li><b>{{ key.replace("_", " ").title() }}</b>: {{ value }}</li>
+            {% endfor %}
+        </ul>
+    </div>
     <h3>📈 Career Growth</h3>
     <ul>
         {% for step in recommendation.growth_trajectory %}
