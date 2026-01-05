@@ -1,5 +1,5 @@
 {
-  "$schema": "MyData-Warehouse/projects/Placement_readiness",
+  "$schema": "MyData-Warehouse\\projects\\Placement_readiness",
   "build": {
     "rootDir": "projects/Placement_readiness"
   },
