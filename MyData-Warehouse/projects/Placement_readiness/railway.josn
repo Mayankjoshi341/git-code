@@ -1,0 +1,9 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "rootDir": "projects/Placement_readiness"
+  },
+  "deploy": {
+    "startCommand": "python app.py"
+  }
+}
