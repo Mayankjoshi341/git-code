@@ -10,9 +10,10 @@ from src.generate_report import mail_generate
 
 app = Flask(__name__ ,  template_folder="templates")
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-scaler = load("models/kmeans_scaler.pkl")
-kmeans = load("models/kmeans_model.pkl")
+scaler = load(os.path.join(BASE_DIR, "models", "scaler.pkl"))
+kmeans = load(os.path.join(BASE_DIR, "models", "kmeans_model.pkl"))
 
 FEATURE_COLS = [
     "cgpa",
@@ -54,9 +55,9 @@ def generate_report():
     cluster = kmeans.predict(user_scaled)[0]
     user_df["cluster"] = cluster
 
-    # Readiness mapping (reuse saved mapping if you stored it)
-    cluster_profiles = load("models/cluster_profile.pkl")
-    readiness_map = load("models/readiness_map.pkl")
+    # Readiness mapping
+    cluster_profiles = load(os.path.join(BASE_DIR, "models", "cluster_profile.pkl"))
+    readiness_map = load(os.path.join(BASE_DIR, "models", "readiness_map.pkl"))
 
     user_df["readiness_level"] = user_df["cluster"].map(readiness_map)
 
@@ -75,15 +76,7 @@ def generate_report():
         print("EMAIL ERROR:", e)
 
 
-    return render_template(
-        "result.html",
-        name=student_name,
-        recommendation=recommendation
-    )
-
-@app.route("/health")
-def health():
-    return "OK", 200
+    return render_template("result.html",name=student_name,recommendation=recommendation)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
