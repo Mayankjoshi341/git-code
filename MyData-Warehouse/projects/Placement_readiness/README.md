@@ -4,7 +4,7 @@ A machine-learning powered web application that evaluates a student’s placemen
 
 🚀 Live Demo
 
-(Add your Railway / Render link here once deployment finishes)
+[git-code-production.up.railway.app](https://git-code-production.up.railway.app/)
 
 🧠 Problem Statement
 

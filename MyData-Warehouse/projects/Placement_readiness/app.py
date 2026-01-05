@@ -10,10 +10,8 @@ from src.generate_report import mail_generate
 
 app = Flask(__name__ ,  template_folder="templates")
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-scaler = load(os.path.join(BASE_DIR, "models", "kmeans_scaler.pkl"))
-kmeans = load(os.path.join(BASE_DIR, "models", "kmeans_model.pkl"))
+scaler = load(os.path.join("models", "kmeans_scaler.pkl"))
+kmeans = load(os.path.join("models", "kmeans_model.pkl"))
 
 FEATURE_COLS = [
     "cgpa",
@@ -56,8 +54,8 @@ def generate_report():
     user_df["cluster"] = cluster
 
     # Readiness mapping
-    cluster_profiles = load(os.path.join(BASE_DIR, "models", "cluster_profile.pkl"))
-    readiness_map = load(os.path.join(BASE_DIR, "models", "readiness_map.pkl"))
+    cluster_profiles = load(os.path.join("models", "cluster_profile.pkl"))
+    readiness_map = load(os.path.join("models", "readiness_map.pkl"))
 
     user_df["readiness_level"] = user_df["cluster"].map(readiness_map)
 
