@@ -81,6 +81,9 @@ def generate_report():
         recommendation=recommendation
     )
 
+@app.route("/health")
+def health():
+    return "OK", 200
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
