@@ -30,7 +30,16 @@ def home():
     return render_template("index.html")
 
 
+from threading import Thread
+
+def send_email_async(email, name, recommendation):
+    try:
+        mail_generate(email, name, recommendation)
+    except Exception as e:
+        print("Email error:", e)
+
 @app.route("/generate-report", methods=["POST"])
+
 def generate_report():
     # Read form data
     student_name = request.form["name"]
@@ -68,13 +77,11 @@ def generate_report():
         cluster_profile=cluster_profiles,
         feature_cols=FEATURE_COLS
     )
-
-    # Send email
-    try:
-        mail_generate(email, student_name, recommendation)
-    except Exception as e:
-        print("EMAIL ERROR:", e)
-
+    Thread(
+        target=send_email_async,
+        args=(email, student_name, recommendation),
+        daemon=True
+    ).start()
 
     return render_template("result.html",name=student_name,recommendation=recommendation)
 
