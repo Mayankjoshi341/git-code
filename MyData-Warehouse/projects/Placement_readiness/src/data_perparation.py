@@ -36,3 +36,4 @@ def data_preparation(n_students):
         "internships_count": internship_count
         })
     return df
+

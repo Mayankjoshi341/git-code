@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Placement Readiness</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR (reuse same navbar style) -->
+<header class="navbar">
+    <div class="nav-left">
+        <div class="logo-icon">🎓</div>
+        <span class="logo-text">Placement Readiness</span>
+    </div>
+    <nav class="nav-right">
+        <a href="/">Home</a>
+        <a href="#">Results</a>
+        <a href="/login">Login</a>
+    </nav>
+</header>
+
+<!-- AUTH PAGE -->
+<section class="auth-container">
+
+    <!-- LEFT SIDE (STATIC) -->
+    <div class="auth-left">
+        <h1>Welcome Back</h1>
+        <p>Sign in to access your personalized placement readiness dashboard</p>
+
+        <img
+            src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04"
+            alt="Login illustration"
+        >
+    </div>
+
+    <!-- RIGHT SIDE (DYNAMIC) -->
+    <div class="auth-right">
+
+        <!-- SIGN IN -->
+        <div id="signin-box" class="auth-box">
+            <h2>Sign In</h2>
+            <p class="auth-subtitle">Enter your credentials to continue</p>
+
+            <form method="POST" action="/login">
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <input type="password" placeholder="Enter your password" required>
+
+                <div class="auth-row">
+                    <label class="remember">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#" class="link">Forgot password?</a>
+                </div>
+                <form action="\form.html">
+                    <button type="submit" class="primary-btn full-width">Sign In</button>
+                </form>
+            </form>
+
+            <p class="switch-text">
+                Don't have an account?
+                <span onclick="showSignup()">Sign Up</span>
+            </p>
+        </div>
+
+        <!-- SIGN UP -->
+        <div id="signup-box" class="auth-box hidden">
+            <h2>Sign Up</h2>
+            <p class="auth-subtitle">Create an account to get started</p>
+
+            <form method="POST" action="/signup">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your name" required>
+
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <input type="password" placeholder="Create a password" required>
+                <form action="/form.html">
+                    <button type="submit" class="primary-btn full-width">Create account</button>
+                </form>
+            </form>
+
+            <p class="switch-text">
+                Already have an account?
+                <span onclick="showSignin()">Sign In</span>
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- TOGGLE SCRIPT -->
+<script>
+function showSignup() {
+    document.getElementById("signin-box").classList.add("hidden");
+    document.getElementById("signup-box").classList.remove("hidden");
+}
+
+function showSignin() {
+    document.getElementById("signup-box").classList.add("hidden");
+    document.getElementById("signin-box").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>

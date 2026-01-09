@@ -7,6 +7,7 @@ import os
 from src.preprocessing import transform_with_scaler
 from src.recommendation import generate_recommendation
 from src.generate_report import mail_generate
+from src.scores import compute_domain_skill_score , DOMAIN_SKILL_SCHEMA , user_rating
 
 app = Flask(__name__ ,  template_folder="templates")
 
@@ -45,10 +46,20 @@ def generate_report():
     student_name = request.form["name"]
     email = request.form["email"]
 
+    domain = request.form["domain"]
+
+    user_skill_ratings = user_rating(domain)
+
+    domain_skill_score = compute_domain_skill_score(
+        domain=domain,
+        user_ratings=user_skill_ratings,
+        domain_schema=DOMAIN_SKILL_SCHEMA
+    )
+    
     user_data = {
         "cgpa": float(request.form["cgpa"]),
         "aptitude_level": int(request.form["aptitude"]),
-        "domain_skill_level": int(request.form["domain_skill"]),
+        "domain_skill_level": domain_skill_score,
         "english_level": int(request.form["english"]),
         "applied_work_count": int(request.form["applied_work"]),
         "internships_count": int(request.form["internships"])
