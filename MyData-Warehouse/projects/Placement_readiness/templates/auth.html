@@ -16,7 +16,7 @@
     <nav class="nav-right">
         <a href="/">Home</a>
         <a href="#">Results</a>
-        <a href="/login">Login</a>
+        <a href="\dashboard.html">Login</a>
     </nav>
 </header>
 
@@ -36,75 +36,56 @@
 
     <!-- RIGHT SIDE (DYNAMIC) -->
     <div class="auth-right">
-
         <!-- SIGN IN -->
-        <div id="signin-box" class="auth-box">
-            <h2>Sign In</h2>
-            <p class="auth-subtitle">Enter your credentials to continue</p>
+    <div id="signin-box" class="auth-box">
+        <h2>Sign In</h2>
+        <p class="auth-subtitle">Enter your credentials to continue</p>
 
-            <form method="POST" action="/login">
-                <label>Email Address</label>
-                <input type="email" placeholder="Enter your email" required>
+        <form id="loginForm">
+            <label>Email Address</label>
+            <input type="email" id="loginEmail" placeholder="Enter your email" required>
 
-                <label>Password</label>
-                <input type="password" placeholder="Enter your password" required>
+            <label>Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter your password" required>
 
-                <div class="auth-row">
-                    <label class="remember">
-                        <input type="checkbox"> Remember me
-                    </label>
-                    <a href="#" class="link">Forgot password?</a>
-                </div>
-                <form action="\form.html">
-                    <button type="submit" class="primary-btn full-width">Sign In</button>
-                </form>
-            </form>
+            <div class="auth-row">
+                <label class="remember">
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#" class="link">Forgot password?</a>
+            </div>
 
-            <p class="switch-text">
-                Don't have an account?
-                <span onclick="showSignup()">Sign Up</span>
-            </p>
-        </div>
+        <!-- STATUS MESSAGE -->
+        <div id="loginStatus" class="status-label hidden"></div>
 
-        <!-- SIGN UP -->
-        <div id="signup-box" class="auth-box hidden">
-            <h2>Sign Up</h2>
-            <p class="auth-subtitle">Create an account to get started</p>
+            <button type="submit" class="primary-btn full-width">
+            Sign In
+            </button>
+        </form>
 
-            <form method="POST" action="/signup">
-                <label>Full Name</label>
-                <input type="text" placeholder="Enter your name" required>
-
-                <label>Email Address</label>
-                <input type="email" placeholder="Enter your email" required>
-
-                <label>Password</label>
-                <input type="password" placeholder="Create a password" required>
-                <form action="/form.html">
-                    <button type="submit" class="primary-btn full-width">Create account</button>
-                </form>
-            </form>
-
-            <p class="switch-text">
-                Already have an account?
-                <span onclick="showSignin()">Sign In</span>
-            </p>
-        </div>
-
+        <p class="switch-text">
+            Don't have an account?
+            <span onclick="showSignup()">Sign Up</span>
+        </p>
+    </div>
     </div>
 </section>
 
 <!-- TOGGLE SCRIPT -->
-<script>
-function showSignup() {
-    document.getElementById("signin-box").classList.add("hidden");
-    document.getElementById("signup-box").classList.remove("hidden");
-}
 
-function showSignin() {
-    document.getElementById("signup-box").classList.add("hidden");
-    document.getElementById("signin-box").classList.remove("hidden");
-}
+<script>
+document.getElementById("loginForm").onsubmit = function () {
+    const msg = document.getElementById("loginMsg");
+    msg.className = "status success";
+    msg.innerText = "Login successful. Redirecting...";
+    msg.classList.remove("hidden");
+
+    setTimeout(() => {
+        window.location.href = "dashboard.html";
+    }, 1500);
+
+    return false; // stop real submit
+};
 </script>
 
 </body>
