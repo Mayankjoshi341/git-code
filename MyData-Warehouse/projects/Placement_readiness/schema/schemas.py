@@ -1,5 +1,3 @@
-import pandas as pd
-from flask import request
 DOMAIN_SKILL_SCHEMA = {
     "Software Engineer (Backend)": {
         "tier": "high",
@@ -56,35 +54,4 @@ DOMAIN_SKILL_SCHEMA = {
         }
     }
 }
-def user_rating(domain):
-    domain = request.form["domain"]
-    domain_skills = DOMAIN_SKILL_SCHEMA[domain]["skills"].keys()
-    
-    user_skill_ratings = {}
-    
-    for skill in domain_skills:
-        field_name = f"skill_{skill}"
-        rating = int(request.form[field_name])
-
-        if not (1 <= rating <= 5):
-            raise ValueError(f"Invalid rating for {skill}")
-
-        user_skill_ratings[skill] = rating
-
-    return user_skill_ratings
-
-def compute_domain_skill_score(domain: str, user_ratings : dict, domain_schema: dict) -> float:
-    skills = domain_schema[domain]["skills"]
-
-    score = 0.0
-    for skill, weight in skills.items():
-        rating = user_ratings.get(skill, 0)
-        normalized = rating / 5
-        score += normalized * weight
-        print(score)
-
-    return round(score, 3)
-
-
-
 
